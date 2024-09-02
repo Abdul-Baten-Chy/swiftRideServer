@@ -41,6 +41,8 @@ const getMybookings = catchAsyncAwait(async (req: Request, res: Response) => {
   const decoded = jwt.verify(token, config.secreteKey as string) as JwtPayload;
 
   const userEmail = decoded.userEmail;
+  console.log(userEmail, 'hellow');
+
   const result = await bookingService.getMyBookingFromDb(userEmail);
   return sendResponse(res, {
     success: true,
@@ -49,9 +51,21 @@ const getMybookings = catchAsyncAwait(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const getAllCarBooking = catchAsyncAwait(
+  async (req: Request, res: Response) => {
+    const result = await bookingService.getAllCarBookingFromDb();
+    return sendResponse(res, {
+      success: true,
+      statusCode: 200,
+      message: 'Bookings retrieved successfully',
+      data: result,
+    });
+  }
+);
 
 export const bookingController = {
   createBooking,
   getAllBookings,
   getMybookings,
+  getAllCarBooking,
 };

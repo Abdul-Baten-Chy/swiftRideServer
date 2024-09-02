@@ -36,6 +36,7 @@ const carSchema = new Schema<Tcars>(
       type: Boolean,
       default: false,
     },
+    images: [{ type: String }],
   },
   {
     timestamps: true,

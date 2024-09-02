@@ -1,6 +1,7 @@
 export type Tcars = {
   name: string;
   description: string;
+  images: string[];
   color: string;
   isElectric: boolean;
   status: 'available' | 'unavailabel';

@@ -7,15 +7,18 @@ import validateUser from './user.validation';
 
 const router = Router();
 
+router.get('/:id', userConroller.getUser);
 router.post(
   '/signup',
   requestVAlidator(validateUser),
   userConroller.createUser
 );
+
 router.post(
   '/signin',
   requestVAlidator(loginValidationSchema),
   authController.loginUser
 );
+router.patch('/update', userConroller.updateUser);
 
 export const userRouter = router;

@@ -8,7 +8,9 @@ export const carValidation = z.object({
     isElectric: z.boolean(),
     status: z.enum(['available', 'unavailabel']).optional(),
     features: z.string().array(),
+    images: z.string().array(),
     pricePerHour: z.number(),
+    isDeleted: z.boolean(),
   }),
 });
 export const carValidationUpdate = z.object({
@@ -20,5 +22,7 @@ export const carValidationUpdate = z.object({
     status: z.enum(['available', 'unavailabel']).optional(),
     features: z.string().array().optional(),
     pricePerHour: z.number().optional(),
+    images: z.string().array().optional(),
+    isDeleted: z.boolean().optional(),
   }),
 });
